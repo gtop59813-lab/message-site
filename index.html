@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Vedika 💫</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  height:100vh;
+  overflow:hidden;
+  color:white;
+}
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  opacity:0;
+  transform:translateX(100%);
+  transition:all 1s ease;
+}
+.active{
+  opacity:1;
+  transform:translateX(0);
+}
+.container{
+  max-width:600px;
+}
+h1{margin-bottom:20px}
+p{line-height:1.7;font-size:1.1rem}
+.btn{
+  margin-top:30px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ff7eb3;
+  color:white;
+  cursor:pointer;
+}
+.heart{
+  position:absolute;
+  width:20px;
+  height:20px;
+  background:red;
+  transform:rotate(45deg);
+  animation:float 6s infinite ease-in;
+}
+.heart::before,.heart::after{
+  content:'';
+  width:20px;height:20px;background:red;border-radius:50%;position:absolute;
+}
+.heart::before{top:-10px}
+.heart::after{left:-10px}
+@keyframes float{
+  0%{transform:translateY(0) rotate(45deg);opacity:1}
+  100%{transform:translateY(-100vh) rotate(45deg);opacity:0}
+}
+</style>
+</head>
+<body>
+
+<div class="slide active">
+  <div class="container">
+    <h1>Hey Vedika 🌟</h1>
+    <p>Hellooooooo Vedika… Thank you for talking to me.<br><br>
+    I can’t forget those 15–20 days we talked. Usually I get bored talking to people easily, but with you… I don’t know why, I never got bored. I genuinely loved talking to you.<br><br>
+    Upar wale ko meri khushi shayad pasand nahi aayi… isliye itna kaand ho gaya.</p>
+    <button class="btn" onclick="nextSlide()">Next ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="container">
+    <p>Thank you for talking to me during New Year.<br><br>
+    It was the first time it felt that good… otherwise I was a bit lonely and pale 😁</p>
+    <button class="btn" onclick="nextSlide()">Next ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="container">
+    <p>Thank you for putting so much effort while talking to me.<br><br>
+    No one has shown me that kind of effort before… especially not like that.</p>
+    <button class="btn" onclick="nextSlide()">Next ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="container">
+    <p>Most thanks for your advice when I was upset with my mom.<br><br>
+    You told me to hug her… and I really wanted to thank you for that since that day, but didn’t get the chance.<br><br>
+    So again… thank you a lot ❤️</p>
+    <button class="btn" onclick="nextSlide()">Next ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="container">
+    <p>Thank you for talking to me…<br><br>
+    You are like the prettiest girl I’ve ever met… and I like your teeth though, because they resemble mine hehe 🥲<br><br>
+    I’ve been thinking about you for like 2 whole months… even when I knew you might forget me.<br><br>
+    Mai aisa hi hun bhai 😭</p>
+    <button class="btn" onclick="nextSlide()">Next ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="container">
+    <p>So I prepared a small gift for you… just like that.<br><br>
+    The keychain actually works — there’s a button at the back (on/off).<br><br>
+    And the card… I just wanted to give you a hug through it hehe 🫠 ignore that 😅<br><br>
+    I hope you like it.<br><br>
+    Pehli baar kisi ko keychain diya hai… aur itna sab likha bhi hai.</p>
+    <button class="btn" onclick="nextSlide()">Next ➜</button>
+  </div>
+</div>
+
+<div class="slide">
+  <div class="container">
+    <p>Ahhh bhai… 😅<br><br>
+    Ye lo mera number: 9277289621<br>
+    Ye lo gmail id: midwivedi01@gmail.com<br><br>
+    Ummmm aise hi de raha hu… never mind though 😂<br><br>
+    Bolo to Aadhaar card ka bhi de du? 💀<br><br>
+    Agar kabhi mann kare… to unblock kar dena 😶‍🌫️</p>
+    <button class="btn" onclick="createHearts()">End 💖</button>
+  </div>
+</div>
+
+<script>
+let current=0;
+const slides=document.querySelectorAll('.slide');
+function nextSlide(){
+  slides[current].classList.remove('active');
+  current++;
+  if(current<slides.length){
+    slides[current].classList.add('active');
+  }
+}
+function createHearts(){
+  for(let i=0;i<25;i++){
+    let heart=document.createElement('div');
+    heart.className='heart';
+    heart.style.left=Math.random()*100+'vw';
+    heart.style.animationDuration=(Math.random()*3+3)+'s';
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+  }
+}
+</script>
+
+</body>
+</html>
